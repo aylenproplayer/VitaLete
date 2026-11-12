@@ -1,0 +1,3238 @@
+/* =====================================================
+
+
+
+   VARIABLES GENERALES DE VITALETE
+
+
+
+   ===================================================== */
+
+
+
+
+
+
+
+:root {
+
+
+
+    --blue: #2e77a1;
+
+
+
+    --green: #59c183;
+
+
+
+    --ink: #0f3a52;
+
+
+
+    --muted: #47606d;
+
+
+
+    --bg: #ffffff;
+
+
+
+    --mint: #eaf6f0;
+
+
+
+    --line: #d3e8de;
+
+
+
+
+
+
+
+    --grad: linear-gradient(90deg, #2e77a1, #3fa56c);
+
+
+
+
+
+
+
+    box-sizing: border-box;
+
+
+
+
+
+
+
+    padding-top: env(safe-area-inset-top, 0px);
+
+
+
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* =====================================================
+
+
+
+   MODO OSCURO
+
+
+
+   ===================================================== */
+
+
+
+
+
+
+
+@media (prefers-color-scheme: dark) {
+
+
+
+    :root:not([data-theme="light"]) {
+
+
+
+        --ink: #eaf5f0;
+
+
+
+        --muted: #a9c1cc;
+
+
+
+        --bg: #0b1d28;
+
+
+
+        --mint: #10303f;
+
+
+
+        --line: #24495a;
+
+
+
+    }
+
+
+
+}
+
+
+
+
+
+
+
+:root[data-theme="dark"] {
+
+
+
+    --ink: #eaf5f0;
+
+
+
+    --muted: #a9c1cc;
+
+
+
+    --bg: #0b1d28;
+
+
+
+    --mint: #10303f;
+
+
+
+    --line: #24495a;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* =====================================================
+
+
+
+   CONFIGURACIÓN GENERAL
+
+
+
+   ===================================================== */
+
+
+
+
+
+
+
+*, *::before, *::after {
+
+
+
+    box-sizing: border-box;
+
+
+
+}
+
+
+
+
+
+
+
+html, body {
+
+
+
+    height: 100%;
+
+
+
+}
+
+
+
+
+
+
+
+body {
+
+
+
+    margin: 0;
+
+
+
+    background: var(--bg);
+
+
+
+    color: var(--ink);
+
+
+
+
+
+
+
+    font-family: 'Figtree', system-ui, -apple-system,
+
+
+
+                 'Segoe UI', sans-serif;
+
+
+
+
+
+
+
+    font-size: 18px;
+
+
+
+    line-height: 1.65;
+
+
+
+
+
+
+
+    display: flex;
+
+
+
+    flex-direction: column;
+
+
+
+
+
+
+
+    min-height: 100vh;
+
+
+
+    overflow-x: hidden;
+
+
+
+}
+
+
+
+
+
+
+
+body::before {
+
+
+
+    content: "";
+
+
+
+
+
+
+
+    position: fixed;
+
+
+
+    inset: 0 0 auto;
+
+
+
+
+
+
+
+    height: env(safe-area-inset-top, 0px);
+
+
+
+
+
+
+
+    background: var(--bg);
+
+
+
+    z-index: 10;
+
+
+
+}
+
+
+
+
+
+
+
+:focus-visible {
+
+
+
+    outline: 3px solid var(--green);
+
+
+
+    outline-offset: 4px;
+
+
+
+    border-radius: 12px;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* =====================================================
+
+
+
+   BOTÓN VOLVER A BIENVENIDA (.flecha-volver)
+
+
+
+   ===================================================== */
+
+
+
+
+
+
+
+.flecha-volver {
+
+
+
+    position: fixed;
+
+
+
+    top: clamp(16px, 2vw, 24px);
+
+
+
+    left: clamp(16px, 2vw, 24px);
+
+
+
+    z-index: 1000;
+
+
+
+
+
+
+
+    display: inline-flex;
+
+
+
+    align-items: center;
+
+
+
+    justify-content: center;
+
+
+
+
+
+
+
+    width: 44px;
+
+
+
+    height: 44px;
+
+
+
+
+
+
+
+    background: var(--mint);
+
+
+
+    color: var(--blue);
+
+
+
+
+
+
+
+    border: 2px solid var(--line);
+
+
+
+    border-radius: 50%;
+
+
+
+
+
+
+
+    font-size: 22px;
+
+
+
+    font-weight: 700;
+
+
+
+    text-decoration: none;
+
+
+
+
+
+
+
+    box-shadow: 0 4px 12px rgba(15, 58, 82, 0.12);
+
+
+
+
+
+
+
+    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+
+
+
+}
+
+
+
+
+
+
+
+.flecha-volver:hover {
+
+
+
+    background: var(--blue);
+
+
+
+    color: #ffffff;
+
+
+
+    border-color: var(--blue);
+
+
+
+    transform: translateX(-4px);
+
+
+
+}
+
+
+
+
+
+
+
+.flecha-volver:active {
+
+
+
+    transform: translateX(-2px) scale(0.96);
+
+
+
+}
+
+
+
+
+
+
+
+@media (prefers-color-scheme: dark) {
+
+
+
+    :root:not([data-theme="light"]) .flecha-volver {
+
+
+
+        background: var(--mint);
+
+
+
+        color: var(--ink);
+
+
+
+        border-color: var(--line);
+
+
+
+    }
+
+
+
+
+
+
+
+    :root:not([data-theme="light"]) .flecha-volver:hover {
+
+
+
+        background: var(--blue);
+
+
+
+        color: #ffffff;
+
+
+
+    }
+
+
+
+}
+
+
+
+
+
+
+
+:root[data-theme="dark"] .flecha-volver {
+
+
+
+    background: var(--mint);
+
+
+
+    color: var(--ink);
+
+
+
+    border-color: var(--line);
+
+
+
+}
+
+
+
+
+
+
+
+:root[data-theme="dark"] .flecha-volver:hover {
+
+
+
+    background: var(--blue);
+
+
+
+    color: #ffffff;
+
+
+
+}
+
+
+
+
+
+
+
+@media (prefers-reduced-motion: reduce) {
+
+
+
+    .flecha-volver {
+
+
+
+        transition: none;
+
+
+
+    }
+
+
+
+
+
+
+
+    .flecha-volver:hover {
+
+
+
+        transform: none;
+
+
+
+    }
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* =====================================================
+
+
+
+   ESTILOS DE NAVEGACIÓN Y ESTRUCTURA
+
+
+
+   ===================================================== */
+
+
+
+
+
+
+
+.navbar {
+
+
+
+    display: flex;
+
+
+
+    justify-content: space-between;
+
+
+
+    align-items: center;
+
+
+
+
+
+
+
+    padding: 18px clamp(24px, 4.5vw, 64px) 18px clamp(76px, 6vw, 100px);
+
+
+
+    border-bottom: 1px solid var(--line);
+
+
+
+}
+
+
+
+
+
+
+
+.logo {
+
+
+
+    display: flex;
+
+
+
+    align-items: center;
+
+
+
+    gap: 12px;
+
+
+
+    font-family: 'Sora', sans-serif;
+
+
+
+    font-weight: 800;
+
+
+
+    font-size: clamp(20px, 1.8vw, 26px);
+
+
+
+    color: var(--blue);
+
+
+
+}
+
+
+
+
+
+
+
+.logo img {
+
+
+
+    width: 48px;
+
+
+
+    height: 48px;
+
+
+
+    border-radius: 50%;
+
+
+
+    object-fit: cover;
+
+
+
+}
+
+
+
+
+
+
+
+.menu {
+
+
+
+    display: flex;
+
+
+
+    align-items: center;
+
+
+
+    gap: 16px;
+
+
+
+}
+
+
+
+
+
+
+
+.texto-cuenta {
+
+
+
+    font-size: 16px;
+
+
+
+    color: var(--muted);
+
+
+
+}
+
+
+
+
+
+
+
+.boton-login {
+
+
+
+    color: var(--blue);
+
+
+
+    border: 2px solid var(--blue);
+
+
+
+    padding: 8px 20px;
+
+
+
+    border-radius: 999px;
+
+
+
+    text-decoration: none;
+
+
+
+    font-weight: 700;
+
+
+
+    font-size: 16px;
+
+
+
+    transition: background-color 0.2s, color 0.2s;
+
+
+
+}
+
+
+
+
+
+
+
+.boton-login:hover {
+
+
+
+    background: var(--blue);
+
+
+
+    color: #ffffff;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* =====================================================
+
+
+
+   CONTENEDOR Y TÍTULOS
+
+
+
+   ===================================================== */
+
+
+
+
+
+
+
+.wrap {
+
+
+
+    width: 100%;
+
+
+
+    margin: 0 auto;
+
+
+
+    padding: 0 clamp(24px, 4.5vw, 120px);
+
+
+
+}
+
+
+
+
+
+
+
+h1, h2 {
+
+
+
+    font-family: 'Sora', system-ui, sans-serif;
+
+
+
+
+
+
+
+    margin: 0;
+
+
+
+    letter-spacing: -.03em;
+
+
+
+    line-height: 1.08;
+
+
+
+}
+
+
+
+
+
+
+
+.gt {
+
+
+
+    background: var(--grad);
+
+
+
+
+
+
+
+    -webkit-background-clip: text;
+
+
+
+    background-clip: text;
+
+
+
+
+
+
+
+    color: transparent;
+
+
+
+}
+
+
+
+
+
+
+
+header {
+
+
+
+    border-bottom: 1px solid var(--line);
+
+
+
+}
+
+
+
+
+
+
+
+header .wrap {
+
+
+
+    display: flex;
+
+
+
+    align-items: center;
+
+
+
+
+
+
+
+    height: clamp(84px, 7vw, 128px);
+
+
+
+
+
+
+
+    padding-left: clamp(16px, 2.6vw, 52px);
+
+
+
+}
+
+
+
+
+
+
+
+.brand {
+
+
+
+    display: flex;
+
+
+
+    align-items: center;
+
+
+
+
+
+
+
+    gap: clamp(14px, 1.2vw, 22px);
+
+
+
+
+
+
+
+    font-family: 'Sora', sans-serif;
+
+
+
+    font-weight: 800;
+
+
+
+    letter-spacing: .12em;
+
+
+
+
+
+
+
+    font-size: clamp(22px, 1.7vw, 32px);
+
+
+
+}
+
+
+
+
+
+
+
+.brand img {
+
+
+
+    width: clamp(60px, 4.8vw, 96px);
+
+
+
+    height: clamp(60px, 4.8vw, 96px);
+
+
+
+
+
+
+
+    border-radius: 50%;
+
+
+
+    background: #fff;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* =====================================================
+
+
+
+   CONTENIDO PRINCIPAL & SECCIONES LANDING
+
+
+
+   ===================================================== */
+
+
+
+
+
+
+
+main {
+
+
+
+    flex: 1;
+
+
+
+
+
+
+
+    display: flex;
+
+
+
+    flex-direction: column;
+
+
+
+
+
+
+
+    padding: clamp(28px, 3vw, 56px) clamp(24px, 4.5vw, 120px);
+
+
+
+    gap: 64px;
+
+
+
+}
+
+
+
+
+
+
+
+.top {
+
+
+
+    display: grid;
+
+
+
+
+
+
+
+    grid-template-columns: 1.1fr .9fr;
+
+
+
+
+
+
+
+    gap: clamp(32px, 4vw, 80px);
+
+
+
+
+
+
+
+    align-items: center;
+
+
+
+}
+
+
+
+
+
+
+
+@media (max-width: 860px) {
+
+
+
+    .top {
+
+
+
+        grid-template-columns: 1fr;
+
+
+
+        gap: 26px;
+
+
+
+    }
+
+
+
+
+
+
+
+    .navbar {
+
+
+
+        padding-left: 76px;
+
+
+
+    }
+
+
+
+}
+
+
+
+
+
+
+
+h1 {
+
+
+
+    font-size: clamp(36px, 5vw, 72px);
+
+
+
+    font-weight: 800;
+
+
+
+    color: var(--ink);
+
+
+
+}
+
+
+
+
+
+
+
+h1 span {
+
+
+
+    background: var(--grad);
+
+
+
+    -webkit-background-clip: text;
+
+
+
+    background-clip: text;
+
+
+
+    color: transparent;
+
+
+
+    display: block;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* =====================================================
+
+
+
+   SECCIÓN HERO & BOTONES
+
+
+
+   ===================================================== */
+
+
+
+
+
+
+
+.hero {
+
+
+
+    display: grid;
+
+
+
+    grid-template-columns: 1fr 1fr;
+
+
+
+    gap: 48px;
+
+
+
+    align-items: center;
+
+
+
+}
+
+
+
+
+
+
+
+.hero-contenido p {
+
+
+
+    font-size: clamp(18px, 1.45vw, 24px);
+
+
+
+    color: var(--muted);
+
+
+
+    margin: 20px 0 32px 0;
+
+
+
+}
+
+
+
+
+
+
+
+.boton-principal {
+
+
+
+    display: inline-block;
+
+
+
+    background: var(--grad);
+
+
+
+    color: #ffffff;
+
+
+
+    font-weight: 700;
+
+
+
+    font-size: 18px;
+
+
+
+    padding: 16px 36px;
+
+
+
+    border-radius: 999px;
+
+
+
+    text-decoration: none;
+
+
+
+    box-shadow: 0 4px 16px rgba(46, 119, 161, 0.25);
+
+
+
+    transition: transform 0.2s, filter 0.2s;
+
+
+
+}
+
+
+
+
+
+
+
+.boton-principal:hover {
+
+
+
+    transform: translateY(-2px);
+
+
+
+    filter: brightness(1.08);
+
+
+
+}
+
+
+
+
+
+
+
+.hero-imagen {
+
+
+
+    display: flex;
+
+
+
+    flex-direction: column;
+
+
+
+    align-items: center;
+
+
+
+    position: relative;
+
+
+
+}
+
+
+
+
+
+
+
+.imagen-circulo {
+
+
+
+    width: clamp(200px, 22vw, 320px);
+
+
+
+    height: clamp(200px, 22vw, 320px);
+
+
+
+    background: var(--mint);
+
+
+
+    border: 3px solid var(--line);
+
+
+
+    border-radius: 50%;
+
+
+
+    display: flex;
+
+
+
+    align-items: center;
+
+
+
+    justify-content: center;
+
+
+
+    padding: 24px;
+
+
+
+}
+
+
+
+
+
+
+
+.imagen-circulo img {
+
+
+
+    width: 80%;
+
+
+
+    height: auto;
+
+
+
+    object-fit: contain;
+
+
+
+}
+
+
+
+
+
+
+
+.mensaje-flotante {
+
+
+
+    margin-top: 16px;
+
+
+
+    background: var(--bg);
+
+
+
+    border: 1px solid var(--line);
+
+
+
+    padding: 8px 18px;
+
+
+
+    border-radius: 999px;
+
+
+
+    display: flex;
+
+
+
+    align-items: center;
+
+
+
+    gap: 8px;
+
+
+
+    font-size: 14px;
+
+
+
+    font-weight: 600;
+
+
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+
+
+
+}
+
+
+
+
+
+
+
+.punto-verde {
+
+
+
+    width: 8px;
+
+
+
+    height: 8px;
+
+
+
+    background: var(--green);
+
+
+
+    border-radius: 50%;
+
+
+
+}
+
+
+
+
+
+
+
+@media (max-width: 860px) {
+
+
+
+    .hero {
+
+
+
+        grid-template-columns: 1fr;
+
+
+
+    }
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* =====================================================
+
+
+
+   SECCIÓN FUNCIONES / TARJETAS
+
+
+
+   ===================================================== */
+
+
+
+
+
+
+
+.funciones {
+
+
+
+    display: flex;
+
+
+
+    flex-direction: column;
+
+
+
+    gap: 40px;
+
+
+
+}
+
+
+
+
+
+
+
+.encabezado-seccion {
+
+
+
+    text-align: center;
+
+
+
+    max-width: 680px;
+
+
+
+    margin: 0 auto;
+
+
+
+}
+
+
+
+
+
+
+
+.etiqueta {
+
+
+
+    font-size: 13px;
+
+
+
+    font-weight: 800;
+
+
+
+    letter-spacing: 0.1em;
+
+
+
+    color: var(--blue);
+
+
+
+    text-transform: uppercase;
+
+
+
+    display: block;
+
+
+
+    margin-bottom: 8px;
+
+
+
+}
+
+
+
+
+
+
+
+.tarjetas {
+
+
+
+    display: grid;
+
+
+
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+
+
+
+    gap: 24px;
+
+
+
+}
+
+
+
+
+
+
+
+.tarjeta {
+
+
+
+    background: var(--mint);
+
+
+
+    border: 1px solid var(--line);
+
+
+
+    border-radius: 24px;
+
+
+
+    padding: 32px;
+
+
+
+    position: relative;
+
+
+
+    display: flex;
+
+
+
+    flex-direction: column;
+
+
+
+    gap: 12px;
+
+
+
+}
+
+
+
+
+
+
+
+.icono {
+
+
+
+    font-size: 28px;
+
+
+
+    width: 52px;
+
+
+
+    height: 52px;
+
+
+
+    border-radius: 16px;
+
+
+
+    background: #ffffff;
+
+
+
+    display: flex;
+
+
+
+    align-items: center;
+
+
+
+    justify-content: center;
+
+
+
+    color: var(--blue);
+
+
+
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+
+
+
+}
+
+
+
+
+
+
+
+.numero {
+
+
+
+    position: absolute;
+
+
+
+    top: 24px;
+
+
+
+    right: 28px;
+
+
+
+    font-family: 'Sora', sans-serif;
+
+
+
+    font-weight: 800;
+
+
+
+    color: var(--line);
+
+
+
+    font-size: 22px;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* =====================================================
+
+
+
+   SECCIÓN CÓMO FUNCIONA
+
+
+
+   ===================================================== */
+
+
+
+
+
+
+
+.como-funciona {
+
+
+
+    display: grid;
+
+
+
+    grid-template-columns: 1fr 1fr;
+
+
+
+    gap: 48px;
+
+
+
+    align-items: center;
+
+
+
+    background: var(--mint);
+
+
+
+    border: 1px solid var(--line);
+
+
+
+    border-radius: 32px;
+
+
+
+    padding: clamp(32px, 4vw, 56px);
+
+
+
+}
+
+
+
+
+
+
+
+.beneficios {
+
+
+
+    display: flex;
+
+
+
+    flex-direction: column;
+
+
+
+    gap: 20px;
+
+
+
+}
+
+
+
+
+
+
+
+.beneficio {
+
+
+
+    display: flex;
+
+
+
+    align-items: flex-start;
+
+
+
+    gap: 16px;
+
+
+
+}
+
+
+
+
+
+
+
+.check {
+
+
+
+    background: var(--green);
+
+
+
+    color: #ffffff;
+
+
+
+    width: 28px;
+
+
+
+    height: 28px;
+
+
+
+    border-radius: 50%;
+
+
+
+    display: flex;
+
+
+
+    align-items: center;
+
+
+
+    justify-content: center;
+
+
+
+    font-weight: bold;
+
+
+
+    flex-shrink: 0;
+
+
+
+    margin-top: 4px;
+
+
+
+}
+
+
+
+
+
+
+
+@media (max-width: 860px) {
+
+
+
+    .como-funciona {
+
+
+
+        grid-template-columns: 1fr;
+
+
+
+    }
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* =====================================================
+
+
+
+   TARJETA DESCRIPTIVA COMPATIBILIDAD
+
+
+
+   ===================================================== */
+
+
+
+
+
+
+
+.desc {
+
+
+
+    border: 2px solid var(--blue);
+
+
+
+
+
+
+
+    border-radius: clamp(24px, 2vw, 36px);
+
+
+
+
+
+
+
+    padding: clamp(28px, 2.4vw, 48px);
+
+
+
+
+
+
+
+    background: var(--mint);
+
+
+
+}
+
+
+
+
+
+
+
+.desc h2 {
+
+
+
+    font-size: clamp(15px, 1.15vw, 20px);
+
+
+
+
+
+
+
+    font-weight: 700;
+
+
+
+    color: var(--blue);
+
+
+
+
+
+
+
+    margin-bottom: 10px;
+
+
+
+    letter-spacing: .02em;
+
+
+
+}
+
+
+
+
+
+
+
+@media (prefers-color-scheme: dark) {
+
+
+
+    :root:not([data-theme="light"]) .desc h2 {
+
+
+
+        color: #7cc1e6;
+
+
+
+    }
+
+
+
+}
+
+
+
+
+
+
+
+.desc p {
+
+
+
+    margin: 0;
+
+
+
+    font-size: clamp(18px, 1.45vw, 27px);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* =====================================================
+
+
+
+   ELECTROCARDIOGRAMA VITALETE
+
+
+
+   ===================================================== */
+
+
+
+
+
+
+
+.pulse {
+
+
+
+    width: 100%;
+
+
+
+    overflow: hidden;
+
+
+
+
+
+
+
+    margin: clamp(28px, 3vw, 56px) 0
+
+
+
+            clamp(8px, 1vw, 16px);
+
+
+
+
+
+
+
+    -webkit-mask-image: linear-gradient(
+
+
+
+        90deg,
+
+
+
+        transparent,
+
+
+
+        #000 5%,
+
+
+
+        #000 95%,
+
+
+
+        transparent
+
+
+
+    );
+
+
+
+
+
+
+
+    mask-image: linear-gradient(
+
+
+
+        90deg,
+
+
+
+        transparent,
+
+
+
+        #000 5%,
+
+
+
+        #000 95%,
+
+
+
+        transparent
+
+
+
+    );
+
+
+
+}
+
+
+
+
+
+
+
+.pulse svg {
+
+
+
+    display: block;
+
+
+
+
+
+
+
+    width: 100%;
+
+
+
+    height: clamp(100px, 10vw, 170px);
+
+
+
+
+
+
+
+    overflow: visible;
+
+
+
+}
+
+
+
+
+
+
+
+.ecg-line {
+
+
+
+    fill: none;
+
+
+
+    stroke: url(#pg1);
+
+
+
+    stroke-width: 4.5;
+
+
+
+    stroke-linecap: round;
+
+
+
+    stroke-linejoin: round;
+
+
+
+
+
+
+
+    stroke-dasharray: 1000;
+
+
+
+    stroke-dashoffset: 1000;
+
+
+
+
+
+
+
+    filter: drop-shadow(
+
+
+
+        0 0 2px rgba(89, 193, 131, 0.25)
+
+
+
+    );
+
+
+
+
+
+
+
+    opacity: 0;
+
+
+
+}
+
+
+
+
+
+
+
+.ecg-a {
+
+
+
+    animation: pulsoA 12s linear infinite;
+
+
+
+}
+
+
+
+
+
+
+
+@keyframes pulsoA {
+
+
+
+    0% {
+
+
+
+        stroke-dashoffset: 1000;
+
+
+
+        opacity: 1;
+
+
+
+    }
+
+
+
+
+
+
+
+    28% {
+
+
+
+        stroke-dashoffset: 0;
+
+
+
+        opacity: 1;
+
+
+
+    }
+
+
+
+
+
+
+
+    31% {
+
+
+
+        stroke-dashoffset: 0;
+
+
+
+        opacity: 0;
+
+
+
+    }
+
+
+
+
+
+
+
+    100% {
+
+
+
+        stroke-dashoffset: 1000;
+
+
+
+        opacity: 0;
+
+
+
+    }
+
+
+
+}
+
+
+
+
+
+
+
+.ecg-b {
+
+
+
+    animation: pulsoB 12s linear infinite;
+
+
+
+}
+
+
+
+
+
+
+
+@keyframes pulsoB {
+
+
+
+    0% {
+
+
+
+        stroke-dashoffset: 1000;
+
+
+
+        opacity: 0;
+
+
+
+    }
+
+
+
+
+
+
+
+    32% {
+
+
+
+        stroke-dashoffset: 1000;
+
+
+
+        opacity: 0;
+
+
+
+    }
+
+
+
+
+
+
+
+    34% {
+
+
+
+        stroke-dashoffset: 1000;
+
+
+
+        opacity: 1;
+
+
+
+    }
+
+
+
+
+
+
+
+    62% {
+
+
+
+        stroke-dashoffset: 0;
+
+
+
+        opacity: 1;
+
+
+
+    }
+
+
+
+
+
+
+
+    65% {
+
+
+
+        stroke-dashoffset: 0;
+
+
+
+        opacity: 0;
+
+
+
+    }
+
+
+
+
+
+
+
+    100% {
+
+
+
+        stroke-dashoffset: 1000;
+
+
+
+        opacity: 0;
+
+
+
+    }
+
+
+
+}
+
+
+
+
+
+
+
+.ecg-c {
+
+
+
+    animation: pulsoC 12s linear infinite;
+
+
+
+}
+
+
+
+
+
+
+
+@keyframes pulsoC {
+
+
+
+    0% {
+
+
+
+        stroke-dashoffset: 1000;
+
+
+
+        opacity: 0;
+
+
+
+    }
+
+
+
+
+
+
+
+    66% {
+
+
+
+        stroke-dashoffset: 1000;
+
+
+
+        opacity: 0;
+
+
+
+    }
+
+
+
+
+
+
+
+    68% {
+
+
+
+        stroke-dashoffset: 1000;
+
+
+
+        opacity: 1;
+
+
+
+    }
+
+
+
+
+
+
+
+    96% {
+
+
+
+        stroke-dashoffset: 0;
+
+
+
+        opacity: 1;
+
+
+
+    }
+
+
+
+
+
+
+
+    99% {
+
+
+
+        stroke-dashoffset: 0;
+
+
+
+        opacity: 0;
+
+
+
+    }
+
+
+
+
+
+
+
+    100% {
+
+
+
+        stroke-dashoffset: 1000;
+
+
+
+        opacity: 0;
+
+
+
+    }
+
+
+
+}
+
+
+
+
+
+
+
+@media (prefers-reduced-motion: reduce) {
+
+
+
+    .ecg-line {
+
+
+
+        animation: none;
+
+
+
+        stroke-dasharray: none;
+
+
+
+        stroke-dashoffset: 0;
+
+
+
+        opacity: 1;
+
+
+
+    }
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* =====================================================
+
+
+
+   BOTÓN EXPLORAR
+
+
+
+   ===================================================== */
+
+
+
+
+
+
+
+.go {
+
+
+
+    text-align: center;
+
+
+
+    margin-top: 10px;
+
+
+
+}
+
+
+
+
+
+
+
+.btn {
+
+
+
+    display: inline-block;
+
+
+
+
+
+
+
+    background: var(--grad);
+
+
+
+    color: #fff;
+
+
+
+
+
+
+
+    font: inherit;
+
+
+
+    font-weight: 700;
+
+
+
+
+
+
+
+    font-size: clamp(19px, 1.5vw, 27px);
+
+
+
+
+
+
+
+    padding: clamp(16px, 1.2vw, 22px)
+
+
+
+             clamp(40px, 3vw, 60px);
+
+
+
+
+
+
+
+    border-radius: 999px;
+
+
+
+
+
+
+
+    text-decoration: none;
+
+
+
+
+
+
+
+    transition: transform .15s;
+
+
+
+}
+
+
+
+
+
+
+
+.btn:hover {
+
+
+
+    filter: brightness(1.08);
+
+
+
+    transform: translateY(-2px);
+
+
+
+}
+
+
+
+
+
+
+
+@media (prefers-reduced-motion: reduce) {
+
+
+
+    .btn {
+
+
+
+        transition: none;
+
+
+
+    }
+
+
+
+
+
+
+
+    .btn:hover {
+
+
+
+        transform: none;
+
+
+
+    }
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* =====================================================
+
+
+
+   PIE DE PÁGINA
+
+
+
+   ===================================================== */
+
+
+
+
+
+
+
+footer {
+
+
+
+    border-top: 1px solid var(--line);
+
+
+
+    text-align: center;
+
+
+
+    padding: 24px clamp(24px, 4.5vw, 120px);
+
+
+
+    font-size: clamp(14px, 1vw, 17px);
+
+
+
+    color: var(--muted);
+
+
+
+    display: flex;
+
+
+
+    flex-direction: column;
+
+
+
+    gap: 8px;
+
+
+
+    align-items: center;
+
+
+
+}
+
+
+
+
+
+
+
+.logo-footer {
+
+
+
+    font-family: 'Sora', sans-serif;
+
+
+
+    font-weight: 800;
+
+
+
+    color: var(--blue);
+
+
+
+}
+

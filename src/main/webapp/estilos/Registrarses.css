@@ -1,0 +1,533 @@
+* {
+
+
+
+    margin: 0;
+
+
+
+    padding: 0;
+
+
+
+    box-sizing: border-box;
+
+
+
+}
+
+
+
+
+
+
+
+body {
+
+
+
+    font-family: Arial, sans-serif;
+
+
+
+    background-color: #eef7f4;
+
+
+
+    color: #123b50;
+
+
+
+
+
+
+
+    min-height: 100vh;
+
+
+
+    display: flex;
+
+
+
+    justify-content: center;
+
+
+
+    align-items: center;
+
+
+
+
+
+
+
+    padding: 30px 15px;
+
+
+
+}
+
+
+
+
+
+
+
+.registro {
+
+
+
+    background-color: white;
+
+
+
+    width: 100%;
+
+
+
+    max-width: 570px;
+
+
+
+
+
+
+
+    padding: 55px 48px;
+
+
+
+    border-radius: 28px;
+
+
+
+
+
+
+
+    box-shadow: 0 15px 45px rgba(20, 70, 65, 0.08);
+
+
+
+}
+
+
+
+
+
+
+
+h1 {
+
+
+
+    text-align: center;
+
+
+
+    font-size: 38px;
+
+
+
+    margin-bottom: 15px;
+
+
+
+    color: #123b50;
+
+
+
+}
+
+
+
+
+
+
+
+.descripcion {
+
+
+
+    text-align: center;
+
+
+
+    color: #647b88;
+
+
+
+    font-size: 18px;
+
+
+
+    margin-bottom: 30px;
+
+
+
+}
+
+
+
+
+
+
+
+form {
+
+
+
+    display: flex;
+
+
+
+    flex-direction: column;
+
+
+
+}
+
+
+
+
+
+
+
+label {
+
+
+
+    font-size: 19px;
+
+
+
+    margin-bottom: 9px;
+
+
+
+    margin-top: 15px;
+
+
+
+}
+
+
+
+
+
+
+
+input {
+
+
+
+    width: 100%;
+
+
+
+    padding: 17px;
+
+
+
+    font-size: 17px;
+
+
+
+
+
+
+
+    border: 1px solid #cce1da;
+
+
+
+    border-radius: 13px;
+
+
+
+
+
+
+
+    outline: none;
+
+
+
+    transition: 0.3s;
+
+
+
+}
+
+
+
+
+
+
+
+input:focus {
+
+
+
+    border-color: #3caf91;
+
+
+
+    box-shadow: 0 0 0 3px rgba(60, 175, 145, 0.12);
+
+
+
+}
+
+
+
+
+
+
+
+button {
+
+
+
+    margin-top: 30px;
+
+
+
+    padding: 18px;
+
+
+
+
+
+
+
+    border: none;
+
+
+
+    border-radius: 40px;
+
+
+
+
+
+
+
+    background: linear-gradient(110deg, #2c85a7, #4bc487);
+
+
+
+
+
+
+
+    color: white;
+
+
+
+    font-size: 19px;
+
+
+
+    font-weight: bold;
+
+
+
+
+
+
+
+    cursor: pointer;
+
+
+
+    transition: 0.3s;
+
+
+
+}
+
+
+
+
+
+
+
+button:hover {
+
+
+
+    transform: translateY(-2px);
+
+
+
+    box-shadow: 0 7px 18px rgba(50, 160, 130, 0.25);
+
+
+
+}
+
+
+
+
+
+
+
+.cuenta {
+
+
+
+    text-align: center;
+
+
+
+    margin-top: 28px;
+
+
+
+    font-size: 16px;
+
+
+
+    color: #647b88;
+
+
+
+}
+
+
+
+
+
+
+
+.cuenta a {
+
+
+
+    color: #269b91;
+
+
+
+    text-decoration: none;
+
+
+
+    font-weight: bold;
+
+
+
+}
+
+
+
+
+
+
+
+.cuenta a:hover {
+
+
+
+    text-decoration: underline;
+
+
+
+}
+
+
+
+
+
+
+
+.volver {
+
+
+
+    display: block;
+
+
+
+    text-align: center;
+
+
+
+    margin-top: 25px;
+
+
+
+
+
+
+
+    color: #269b91;
+
+
+
+    font-size: 18px;
+
+
+
+    text-decoration: none;
+
+
+
+}
+
+
+
+
+
+
+
+.volver:hover {
+
+
+
+    text-decoration: underline;
+
+
+
+}
+
+
+
+
+
+
+
+@media (max-width: 600px) {
+
+
+
+    .registro {
+
+
+
+        padding: 35px 23px;
+
+
+
+    }
+
+
+
+
+
+
+
+    h1 {
+
+
+
+        font-size: 30px;
+
+
+
+    }
+
+
+
+}
